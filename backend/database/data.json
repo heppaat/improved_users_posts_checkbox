@@ -1,0 +1,62 @@
+[
+  {
+    "userId": 1,
+    "id": 101,
+    "title": "Exploring the Mountains",
+    "body": "A beautiful day spent hiking through the mountains, enjoying nature."
+  },
+  {
+    "userId": 2,
+    "id": 102,
+    "title": "City Life",
+    "body": "The hustle and bustle of the city never ceases to amaze me."
+  },
+  {
+    "userId": 3,
+    "id": 103,
+    "title": "Tech Innovations",
+    "body": "Exploring the latest trends in technology and how they are shaping our future."
+  },
+  {
+    "userId": 1,
+    "id": 104,
+    "title": "Cooking Tips",
+    "body": "Some quick and easy recipes that anyone can try at home."
+  },
+  {
+    "userId": 4,
+    "id": 105,
+    "title": "Travel Diary",
+    "body": "My recent trip to Japan and the wonderful experiences I had there."
+  },
+  {
+    "userId": 5,
+    "id": 106,
+    "title": "Fitness Journey",
+    "body": "Sharing my fitness journey and tips for staying motivated."
+  },
+  {
+    "userId": 2,
+    "id": 107,
+    "title": "Art and Creativity",
+    "body": "A deep dive into the world of art and how creativity fuels innovation."
+  },
+  {
+    "userId": 3,
+    "id": 108,
+    "title": "Financial Planning",
+    "body": "Tips and strategies for effective financial planning in today's economy."
+  },
+  {
+    "userId": 6,
+    "id": 109,
+    "title": "Gardening Tips",
+    "body": "How to start a garden from scratch and tips for maintaining it."
+  },
+  {
+    "userId": 4,
+    "id": 110,
+    "title": "Learning New Languages",
+    "body": "My experience learning new languages and the best resources to use."
+  }
+]
