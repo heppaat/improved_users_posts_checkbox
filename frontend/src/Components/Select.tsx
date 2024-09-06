@@ -13,7 +13,9 @@ const getUniqueUserIds = (arr: Post[]) =>
 const Select = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [posts, setPosts] = useState<Post[] | null>(null);
-  const [error, setError] = useState<string | null>();
+  const [error, setError] = useState<string | null>(null);
+
+  const [selectedUser, setSelectedUser] = useState<number | null>(null);
 
   const getPosts = async () => {
     setIsLoading(true);
@@ -34,12 +36,22 @@ const Select = () => {
 
   const uniqueUserIds = posts ? getUniqueUserIds(posts) : [];
 
+  const handleSelectUser = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const userId = parseInt(event.target.value, 10);
+    setSelectedUser(userId);
+  };
+
+  const filteredPosts =
+    selectedUser && posts
+      ? posts.filter((post) => post.userId === selectedUser)
+      : posts;
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
-      <select name="" id="">
+      <select name="" id="" onChange={handleSelectUser}>
         <option value="">Users</option>
         {uniqueUserIds.map((userId) => (
           <option key={userId} value={userId}>
@@ -49,6 +61,13 @@ const Select = () => {
       </select>
       <select name="" id="">
         <option value="">Posts</option>
+        {filteredPosts &&
+          filteredPosts.map((post) => (
+            <option key={post.id} value={post.id}>
+              {post.title}
+            </option>
+          ))}
+        {!filteredPosts && <option value="">No posts available</option>}
       </select>
     </div>
   );
