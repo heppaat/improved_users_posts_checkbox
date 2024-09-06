@@ -1,11 +1,10 @@
 import "./App.css";
+import Select from "./Components/Select";
 
 function App() {
   return (
     <>
-      <select name="" id="">
-        <option value="">Pali</option>
-      </select>
+      <Select />
     </>
   );
 }

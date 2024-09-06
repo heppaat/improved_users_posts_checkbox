@@ -11,7 +11,7 @@ app.use(express.json());
 const readFile = async () => {
   try {
     const rawData = await fs.readFile(
-      `${__dirname}/../backend/data.json`,
+      `${__dirname}/../database/data.json`,
       "utf-8"
     );
     const data = JSON.parse(rawData);
