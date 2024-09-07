@@ -16,13 +16,13 @@ const Select = () => {
   const [error, setError] = useState<string | null>(null);
 
   const [selectedUser, setSelectedUser] = useState<number | null>(null);
+  const [selectedPost, setSelectedPost] = useState<number | null>(null);
 
   const getPosts = async () => {
     setIsLoading(true);
     try {
       const data = await fetchData();
       setPosts(data);
-      console.log(data);
     } catch (error) {
       setError((error as Error).message || "An error occurred");
     } finally {
@@ -46,30 +46,50 @@ const Select = () => {
       ? posts.filter((post) => post.userId === selectedUser)
       : posts;
 
+  const handleSelectPost = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const postId = parseInt(event.target.value, 10);
+    setSelectedPost(postId);
+  };
+
+  const postToRender =
+    selectedPost && posts
+      ? posts.find((post) => post.id === selectedPost)
+      : null;
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <select name="" id="" onChange={handleSelectUser}>
-        <option value="">Users</option>
-        {uniqueUserIds.map((userId) => (
-          <option key={userId} value={userId}>
-            User: {userId}
-          </option>
-        ))}
-      </select>
-      <select name="" id="">
-        <option value="">Posts</option>
-        {filteredPosts &&
-          filteredPosts.map((post) => (
-            <option key={post.id} value={post.id}>
-              {post.title}
+    <>
+      <section>
+        <select name="users" id="users" onChange={handleSelectUser}>
+          <option value="">Users</option>
+          {uniqueUserIds.map((userId) => (
+            <option key={userId} value={userId}>
+              User: {userId}
             </option>
           ))}
-        {!filteredPosts && <option value="">No posts available</option>}
-      </select>
-    </div>
+        </select>
+        <select name="posts" id="posts" onChange={handleSelectPost}>
+          <option value="">Posts</option>
+          {filteredPosts &&
+            filteredPosts.map((post) => (
+              <option key={post.id} value={post.id}>
+                {post.title}
+              </option>
+            ))}
+          {!filteredPosts && <option value="">No posts available</option>}
+        </select>
+      </section>
+      <section>
+        {postToRender && (
+          <div>
+            <h1>{postToRender.title}</h1>
+            <p>{postToRender.body}</p>
+          </div>
+        )}
+      </section>
+    </>
   );
 };
 
