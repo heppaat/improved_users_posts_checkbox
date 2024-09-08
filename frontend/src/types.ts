@@ -4,3 +4,9 @@ export type Post = {
   title: string;
   body: string;
 };
+
+export type CreatedPost = {
+  userId: number;
+  title: string;
+  body: string;
+};

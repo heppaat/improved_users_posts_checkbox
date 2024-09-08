@@ -38,7 +38,7 @@ app.post("/posts", async (req, res) => {
   const posts = await readFile();
   if (!posts) return res.sendStatus(500);
 
-  const newId = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+  const newId = Math.floor(Math.random() * (10000 - 100 + 1)) + 100;
 
   const newPost = {
     userId: result.userId,

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Post } from "../types.ts";
 import { fetchData } from "../services/Api.tsx";
+import NewPost from "../Components/NewPost.tsx";
 
 const getUniqueUserIds = (arr: Post[]) =>
   arr.reduce<number[]>((acc, curr) => {
@@ -56,13 +57,28 @@ const Select = () => {
       ? posts.find((post) => post.id === selectedPost)
       : null;
 
+  const addNewPost = (newPost: Post) => {
+    setPosts((prevPosts) => (prevPosts ? [...prevPosts, newPost] : [newPost]));
+    setSelectedUser(newPost.userId);
+    setSelectedPost(newPost.id);
+  };
+
+  useEffect(() => {
+    console.log("Selected Post:", selectedPost); // Debug: Check if this logs the correct ID
+  }, [selectedPost]);
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <>
       <section>
-        <select name="users" id="users" onChange={handleSelectUser}>
+        <select
+          name="users"
+          id="users"
+          onChange={handleSelectUser}
+          value={selectedUser || ""}
+        >
           <option value="">Users</option>
           {uniqueUserIds.map((userId) => (
             <option key={userId} value={userId}>
@@ -70,8 +86,13 @@ const Select = () => {
             </option>
           ))}
         </select>
-        <select name="posts" id="posts" onChange={handleSelectPost}>
-          <option value="">Posts</option>
+        <select
+          name="posts"
+          id="posts"
+          onChange={handleSelectPost}
+          value={selectedPost || ""}
+        >
+          <option>Posts</option>
           {filteredPosts &&
             filteredPosts.map((post) => (
               <option key={post.id} value={post.id}>
@@ -88,6 +109,9 @@ const Select = () => {
             <p>{postToRender.body}</p>
           </div>
         )}
+      </section>
+      <section>
+        <NewPost uniqueUsers={uniqueUserIds} addNewPost={addNewPost} />
       </section>
     </>
   );
