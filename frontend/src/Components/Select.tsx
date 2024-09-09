@@ -71,49 +71,51 @@ const Select = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <>
-      <section>
-        <select
-          name="users"
-          id="users"
-          onChange={handleSelectUser}
-          value={selectedUser || ""}
-        >
-          <option value="">Users</option>
-          {uniqueUserIds.map((userId) => (
-            <option key={userId} value={userId}>
-              User: {userId}
-            </option>
-          ))}
-        </select>
-        <select
-          name="posts"
-          id="posts"
-          onChange={handleSelectPost}
-          value={selectedPost || ""}
-        >
-          <option>Posts</option>
-          {filteredPosts &&
-            filteredPosts.map((post) => (
-              <option key={post.id} value={post.id}>
-                {post.title}
+    <main className="main-container">
+      <h1 className="title">Choose the User and the Post</h1>
+      <div className="dropdown-section">
+        <section className="select-user-section">
+          <select
+            name="users"
+            id="users"
+            onChange={handleSelectUser}
+            value={selectedUser || ""}
+          >
+            <option value="">Users</option>
+            {uniqueUserIds.map((userId) => (
+              <option key={userId} value={userId}>
+                User: {userId}
               </option>
             ))}
-          {!filteredPosts && <option value="">No posts available</option>}
-        </select>
-      </section>
-      <section>
-        {postToRender && (
-          <div>
-            <h1>{postToRender.title}</h1>
-            <p>{postToRender.body}</p>
-          </div>
-        )}
-      </section>
-      <section>
-        <NewPost uniqueUsers={uniqueUserIds} addNewPost={addNewPost} />
-      </section>
-    </>
+          </select>
+          <select
+            name="posts"
+            id="posts"
+            onChange={handleSelectPost}
+            value={selectedPost || ""}
+          >
+            <option>Posts</option>
+            {filteredPosts &&
+              filteredPosts.map((post) => (
+                <option key={post.id} value={post.id}>
+                  {post.title}
+                </option>
+              ))}
+            {!filteredPosts && <option value="">No posts available</option>}
+          </select>
+        </section>
+        <section className="select-user-section">
+          {postToRender && (
+            <div>
+              <h1>{postToRender.title}</h1>
+              <p>{postToRender.body}</p>
+            </div>
+          )}
+        </section>
+      </div>
+      <h1 className="title">Choose the User and create a new Post</h1>
+      <NewPost uniqueUsers={uniqueUserIds} addNewPost={addNewPost} />
+    </main>
   );
 };
 

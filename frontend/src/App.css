@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  /* border: 0; */
+  box-sizing: border-box;
+}
+
+.main-container {
+  height: 75vh;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(123, 175, 254);
+  height: 100px;
+  margin-bottom: 50px;
+}
+
+.dropdown-section {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+  margin-bottom: 30px;
+}
+
+.select-user-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.dropdown-textarea {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.title-body-button {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+button {
+  width: 50px;
+}

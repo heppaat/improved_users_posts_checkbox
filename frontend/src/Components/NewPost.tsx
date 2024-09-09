@@ -53,8 +53,8 @@ const NewPost = (props: {
   if (error) return <div>{error}</div>;
 
   return (
-    <>
-      <section>
+    <div className="dropdown-textarea">
+      <section className="select-user-section">
         <select
           name="userForPost"
           id="userForPost"
@@ -68,27 +68,28 @@ const NewPost = (props: {
             </option>
           ))}
         </select>
-        <div>
+      </section>
+      <section className="select-user-section">
+        <div className="title-body-button">
           <input
             type="text"
             placeholder="Add title..."
             value={newPostTitle || ""}
             onChange={(e) => setNewPostTitle(e.target.value)}
           />
-        </div>
-        <div>
+
           <textarea
             placeholder="Add body..."
+            cols={40}
             rows={10}
             value={newPostBody || ""}
             onChange={(e) => setNewPostBody(e.target.value)}
           />
-        </div>
-        <div>
+
           <button onClick={handleSendNewPost}>Send</button>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
