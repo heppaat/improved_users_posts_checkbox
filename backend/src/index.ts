@@ -1,7 +1,6 @@
 import express from "express";
 import fs from "fs/promises";
 import cors from "cors";
-import { error } from "console";
 
 const app = express();
 

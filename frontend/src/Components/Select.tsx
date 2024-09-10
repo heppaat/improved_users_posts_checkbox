@@ -63,10 +63,6 @@ const Select = () => {
     setSelectedPost(newPost.id);
   };
 
-  useEffect(() => {
-    console.log("Selected Post:", selectedPost); // Debug: Check if this logs the correct ID
-  }, [selectedPost]);
-
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 

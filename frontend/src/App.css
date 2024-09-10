@@ -15,14 +15,13 @@
   align-items: center;
   background-color: rgb(123, 175, 254);
   height: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .dropdown-section {
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .select-user-section {
