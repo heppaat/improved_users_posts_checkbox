@@ -41,6 +41,10 @@ const Checkboxes = () => {
     console.log(checked);
   }, [checked]);
 
+  const selectedBeers = list
+    .filter((item) => checked[item.id] === true)
+    .map((item) => item.name);
+
   return (
     <>
       <Checkbox
@@ -56,6 +60,7 @@ const Checkboxes = () => {
           clicked={() => handleChecked(item.id)}
         />
       ))}
+      <p>{selectedBeers.join(", ")}</p>
     </>
   );
 };

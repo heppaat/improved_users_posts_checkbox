@@ -9,6 +9,7 @@ export const fetchData = async (): Promise<Post[]> => {
     }
 
     const data = await response.json();
+
     return data as Post[];
   } catch (error) {
     console.error("Failed to fetch data", error);
