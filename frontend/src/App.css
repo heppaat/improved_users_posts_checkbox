@@ -6,7 +6,7 @@
 }
 
 .main-container {
-  height: 75vh;
+  height: 60vh;
 }
 
 .title {
@@ -44,4 +44,8 @@
 
 button {
   width: 50px;
+}
+
+.checkbox {
+  margin-left: 10px;
 }

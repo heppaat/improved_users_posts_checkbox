@@ -47,6 +47,7 @@ const Checkboxes = () => {
 
   return (
     <>
+      <h1 className="title">Choose your favourite beer(s)</h1>
       <Checkbox
         label={"Select all"}
         checked={selectAll}

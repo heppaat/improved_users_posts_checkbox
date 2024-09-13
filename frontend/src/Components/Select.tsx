@@ -67,7 +67,7 @@ const Select = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <main className="main-container">
+    <main>
       <h1 className="title">Choose the User and the Post</h1>
       <div className="dropdown-section">
         <section className="select-user-section">

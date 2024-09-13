@@ -5,10 +5,15 @@ const Checkbox = (props: {
 }) => {
   const { label, checked, clicked } = props;
   return (
-    <div>
-      <input type="checkbox" onChange={clicked} checked={checked} />
+    <>
+      <input
+        className="checkbox"
+        type="checkbox"
+        onChange={clicked}
+        checked={checked}
+      />
       {label}
-    </div>
+    </>
   );
 };
 
