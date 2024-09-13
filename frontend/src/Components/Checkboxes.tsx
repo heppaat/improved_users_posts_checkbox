@@ -61,7 +61,7 @@ const Checkboxes = () => {
           clicked={() => handleChecked(item.id)}
         />
       ))}
-      <p>{selectedBeers.join(", ")}</p>
+      <p id="checkbox-paragraph">{selectedBeers.join(", ")}</p>
     </>
   );
 };

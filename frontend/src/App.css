@@ -49,3 +49,9 @@ button {
 .checkbox {
   margin-left: 10px;
 }
+
+#checkbox-paragraph {
+  margin-left: 40px;
+  margin-top: 15px;
+  font-size: x-large;
+}
